@@ -24,14 +24,14 @@ prices_cache = {}
 # Domain configurations
 COUNTRY_CONFIG = {
     'ar': {
-        'domain': 'mercadolibre.com.ar',
+        'domain': 'listado.mercadolibre.com.ar',
         'currency': 'ARS',
         'country_name': 'Argentina',
         'exchange_rate_api': API_URL,
         'needs_exchange_rate': True
     },
     'br': {
-        'domain': 'mercadolivre.com.br',
+        'domain': 'lista.mercadolivre.com.br',
         'currency': 'BRL',
         'country_name': 'Brasil',
         'exchange_rate_api': None,
@@ -156,7 +156,7 @@ def get_prices(item, number_of_pages, country_code='ar', condition='all'):
     
     for i in range(number_of_pages):
         start_item = i * 50 + 1
-        url = f"https://listado.{domain}/{item}{condition_param}_Desde_{start_item}_NoIndex_True"
+        url = f"https://{domain}/{item}{condition_param}_Desde_{start_item}_NoIndex_True"
         try:
             response = requests.get(url)
             response.raise_for_status()
